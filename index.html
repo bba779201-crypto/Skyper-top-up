@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="km">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skyper - ហាងទិញកាតហ្គេមលឿនបំផុតនៅកម្ពុជា</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #120826; color: #ffffff; }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between">
+
+    <!-- Header Section -->
+    <header class="border-b border-purple-900/50 bg-[#190d30]/80 backdrop-blur-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <span class="bg-gradient-to-r from-amber-400 to-orange-500 text-slate-950 font-bold px-3 py-1.5 rounded-xl text-base shadow-md">⚡ SKYPER TOPUP</span>
+            </div>
+            <div>
+                <a href="https://t.me/your_telegram" target="_blank" class="text-xs bg-purple-900/60 hover:bg-purple-800 border border-purple-700/50 px-3 py-2 rounded-lg transition text-purple-200 font-semibold">📞 ទំនាក់ទំនង Telegram</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-grow max-w-5xl mx-auto px-4 py-8 w-full">
+        <!-- Section Title -->
+        <div class="bg-gradient-to-r from-purple-900/80 to-indigo-950/80 border border-purple-600/40 rounded-2xl p-4 mb-8 text-center shadow-lg">
+            <h2 class="text-xl md:text-2xl font-bold text-amber-300">💎 ជ្រើសរើសកញ្ចប់ពេជ្រ</h2>
+            <p class="text-xs text-purple-300 mt-1">បំពេញ UID និងជ្រើសរើសកញ្ចប់ដែលអ្នកចង់ទិញខាងក្រោមនេះ</p>
+        </div>
+
+        <!-- Top-up Interactive Section -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            
+            <!-- Step 1: Enter UID -->
+            <div class="space-y-4 bg-[#1b0e38] border border-purple-900/60 p-5 rounded-2xl shadow-xl h-fit">
+                <div class="flex items-center space-x-2">
+                    <span class="w-7 h-7 rounded-full bg-amber-400 text-slate-950 font-bold flex items-center justify-center text-xs">1</span>
+                    <h3 class="font-bold text-sm text-purple-200">បញ្ចូលអត្តសញ្ញាណហ្គេម (UID)</h3>
+                </div>
+                <div>
+                    <label class="block text-xs text-purple-400 mb-1.5">Game User ID / Zone ID</label>
+                    <input type="text" id="uidInput" placeholder="ឧទាហរណ៍៖ 12345678 (1234)" class="w-full bg-[#120826] border border-purple-800/80 rounded-xl px-3.5 py-2.5 text-sm focus:outline-none focus:border-amber-400 text-white transition">
+                </div>
+                <div class="p-3 bg-[#120826]/70 rounded-xl border border-purple-900/50 text-[11px] text-purple-300 leading-relaxed">
+                    💡 <strong>ចំណាំ៖</strong> សូមពិនិត្យលេខ UID ឱ្យបានត្រឹមត្រូវ មុនពេលចុចប៊ូតុងបង់ប្រាក់ខាងក្រោម។
+                </div>
+            </div>
+
+            <!-- Step 2: Select Packages -->
+            <div class="space-y-4 lg:col-span-2 bg-[#1b0e38] border border-purple-900/60 p-5 rounded-2xl shadow-xl">
+                <div class="flex items-center space-x-2">
+                    <span class="w-7 h-7 rounded-full bg-amber-400 text-slate-950 font-bold flex items-center justify-center text-xs">2</span>
+                    <h3 class="font-bold text-sm text-purple-200">កញ្ចប់ពេញនិយម</h3>
+                </div>
+                
+                <!-- Package Grid -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3" id="packageContainer">
+                    
+                    <!-- P1 -->
+                    <div onclick="selectPackage(this, 'Weekly Pass (ដាក់កុ៉ំឱ្យសៀវ 70 ថ្ងៃ +1 ពិទ)', '1.54')" class="package-card border-2 border-amber-400 bg-purple-950/40 p-3.5 rounded-xl cursor-pointer text-center transition hover:border-amber-300 relative">
+                        <div class="absolute -top-2.5 left-1/2 transform -translate-x-1/2 bg-amber-500 text-slate-950 text-[9px] font-bold px-2 py-0.5 rounded-full shadow">ដាក់កុ៉ំឱ្យសៀវ 70 ថ្ងៃ +1 ពិទ</div>
+                        <div class="font-extrabold text-amber-300 text-base mt-1">$1.54</div>
+                        <div class="text-xs font-semibold text-purple-200 mt-0.5">Weekly Pass</div>
+                    </div>
+
+                    <!-- P2 -->
+                    <div onclick="selectPackage(this, 'Weekly Pass X2 (បាន 160 💎 ភ្លាមៗ +4 ពិទ)', '3.08')" class="package-card border-2 border-purple-900 bg-[#120826] p-3.5 rounded-xl cursor-pointer text-center transition hover:border-purple-600 relative">
+                        <div class="absolute -top-2.5 left-1/2 transform -translate-x-1/2 bg-purple-700 text-white text-[9px] font-bold px-2 py-0.5 rounded-full shadow">បាន 160 💎 ភ្លាមៗ +4 ពិទ</div>
+                        <div class="font-extrabold text-amber-300 text-base mt-1">$3.08</div>
+                        <div class="text-xs font-semibold text-purple-200 mt-0.5">Weekly PassX2</div>
+                    </div>
+
+                    <!-- P3 -->
+                    <div onclick="selectPackage(this, 'Weekly Pass X3 (កញ្ចប់ណាន់ត៍ Full T +6 ពិទ)', '4.62')" class="package-card border-2 border-purple-900 bg-[#120826] p-3.5 rounded-xl cursor-pointer text-center transition hover:border-purple-600 relative">
+                        <div class="absolute -top-2.5 left-1/2 transform -translate-x-1/2 bg-purple-700 text-white text-[9px] font-bold px-2 py-0.5 rounded-full shadow">កញ្ចប់ណាន់ត៍ Full T +6 ពិទ</div>
+                        <div class="font-extrabold text-amber-300 text-base mt-1">$4.62</div>
+                        <div class="text-xs font-semibold text-purple-200 mt-0.5">Weekly PassX3</div>
+                    </div>
+
+                    <!-- P4 -->
+                    <div onclick="selectPackage(this, 'កញ្ចប់ប្រចាំសប្ដាហ៍ (ដាក់បានតែកុ៉ក្នុងមួយ +1 ពិទ)', '0.85')" class="package-card border-2 border-purple-900 bg-[#120826] p-3.5 rounded-xl cursor-pointer text-center transition hover:border-purple-600 relative">
+                        <div class="absolute -top-2.5 left-1/2 transform -translate-x-1/2 bg-purple-700 text-white text-[9px] font-bold px-2 py-0.5 rounded-full shadow">ដាក់បានតែកុ៉ក្នុងមួយ +1 ពិទ</div>
+                        <div class="font-extrabold text-amber-300 text-base mt-1">$0.85</div>
+                        <div class="text-xs font-semibold text-purple-200 mt-0.5">កញ្ចប់ប្រចាំសប្ដាហ៍</div>
+                    </div>
+
+                    <!-- P5 -->
+                    <div onclick="selectPackage(this, 'កញ្ចប់ប្រចាំខែ (ដាក់បាន 1 កន់ក្នុងមួយ +5 ពិទ)', '4.30')" class="package-card border-2 border-purple-900 bg-[#120826] p-3.5 rounded-xl cursor-pointer text-center transition hover:border-purple-600 relative">
+                        <div class="absolute -top-2.5 left-1/2 transform -translate-x-1/2 bg-purple-700 text-white text-[9px] font-bold px-2 py-0.5 rounded-full shadow">ដាក់បាន 1 កន់ក្នុងមួយ +5 ពិទ</div>
+                        <div class="font-extrabold text-amber-300 text-base mt-1">$4.30</div>
+                        <div class="text-xs font-semibold text-purple-200 mt-0.5">កញ្ចប់ប្រចាំខែ</div>
+                    </div>
+
+                    <!-- P6 -->
+                    <div onclick="selectPackage(this, '165 💎 +Weekly (កញ្ចប់ណាន់ត៍ Full T +3 ពិទ)', '4.15')" class="package-card border-2 border-purple-900 bg-[#120826] p-3.5 rounded-xl cursor-pointer text-center transition hover:border-purple-600 relative">
+                        <div class="absolute -top-2.5 left-1/2 transform -translate-x-1/2 bg-purple-700 text-white text-[9px] font-bold px-2 py-0.5 rounded-full shadow">កញ្ចប់ណាន់ត៍ Full T +3 ពិទ</div>
+                        <div class="font-extrabold text-amber-300 text-base mt-1">$4.15</div>
+                        <div class="text-xs font-semibold text-purple-200 mt-0.5">165 💎 +Weekly</div>
+                    </div>
+
+                </div>
+
+                <!-- Summary Bar -->
+                <div class="mt-6 pt-4 border-t border-purple-900/60 flex justify-between items-center bg-[#120826] px-4 py-3 rounded-xl">
+                    <span class="text-xs text-purple-300 font-semibold">សរុបទឹកប្រាក់:</span>
+                    <span id="totalPriceDisplay" class="text-lg font-bold text-amber-400">1.54$</span>
+                </div>
+
+                <!-- Checkout Button -->
+                <div class="pt-2">
+                    <button onclick="checkout()" class="w-full bg-gradient-to-r from-amber-400 to-orange-500 hover:from-amber-300 hover:to-orange-400 text-slate-950 font-extrabold py-3.5 rounded-xl transition shadow-lg shadow-orange-500/20 text-sm flex items-center justify-center space-x-2">
+                        <span>🛒 បង់ ឥឡូវ រ</span>
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Modal Popup for QR Code Scanning -->
+    <div id="qrModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-[#1b0e38] border border-purple-700/60 rounded-3xl max-w-sm w-full p-6 text-center shadow-2xl relative">
+            <h3 class="text-lg font-bold text-amber-300 mb-1">ស្កេន KHQR ដើម្បីបង់ប្រាក់</h3>
+            <p id="modalInfo" class="text-xs text-purple-300 mb-4">ກະລុណាហេវ KHQR ខាងក្រោមដើម្បីទូទាត់ប្រាក់</p>
+            
+            <div class="bg-white p-3 rounded-2xl inline-block mb-4 shadow-inner">
+                <!-- KHQR image linked from user provided URL or fallback -->
+                <img id="qrImage" src="https://i.ibb.co/cXcr6GcJ/image.jpg" alt="KHQR Payment" class="w-48 h-48 object-contain mx-auto rounded-lg" onerror="this.src='https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=SkyperTopupKHQRPayment'">
+            </div>
+            
+            <div class="text-xs text-purple-200 bg-[#120826] p-3 rounded-xl mb-5 border border-purple-900/60 text-left space-y-1">
+                <div>UID: <span id="confirmUid" class="font-bold text-amber-400">-</span></div>
+                <div>កញ្ចប់: <span id="confirmPkg" class="font-bold text-amber-400">-</span></div>
+                <div>ទឹកប្រាក់: <span id="confirmPrice" class="font-bold text-amber-400">-</span></div>
+            </div>
+
+            <div class="flex space-x-3">
+                <button onclick="closeModal()" class="w-1/2 bg-purple-900/60 hover:bg-purple-800 text-purple-200 font-bold py-2.5 rounded-xl text-xs transition">បោះបង់</button>
+                <button onclick="confirmPayment()" class="w-1/2 bg-gradient-to-r from-emerald-500 to-green-600 text-white font-bold py-2.5 rounded-xl text-xs transition shadow-lg">ទូទាត់រួចរាល់ ✅</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="border-t border-purple-900/50 bg-[#120826] py-5 mt-10 text-center text-[11px] text-purple-400">
+        <p>&copy; 2026 Skyper Store. All rights reserved. Fast & Secure Top-up ⚡</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        let selectedPkgName = "Weekly Pass (ដាក់កុ៉ំឱ្យសៀវ 70 ថ្ងៃ +1 ពិទ)";
+        let selectedPkgPrice = "1.54";
+
+        function selectPackage(element, pkgName, price) {
+            const cards = document.querySelectorAll('.package-card');
+            cards.forEach(card => {
+                card.classList.remove('border-amber-400', 'bg-purple-950/40');
+                card.classList.add('border-purple-900', 'bg-[#120826]');
+            });
+
+            element.classList.remove('border-purple-900', 'bg-[#120826]');
+            element.classList.add('border-amber-400', 'bg-purple-950/40');
+
+            selectedPkgName = pkgName;
+            selectedPkgPrice = price;
+
+            document.getElementById('totalPriceDisplay').innerText = price + '$';
+        }
+
+        function checkout() {
+            const uid = document.getElementById('uidInput').value.trim();
+            if (!uid) {
+                alert('សូមបញ្ចូលលេខ UID ហ្គេមរបស់អ្នកជាមុនសិន!');
+                document.getElementById('uidInput').focus();
+                return;
+            }
+
+            document.getElementById('confirmUid').innerText = uid;
+            document.getElementById('confirmPkg').innerText = selectedPkgName;
+            document.getElementById('confirmPrice').innerText = selectedPkgPrice + "$";
+            
+            document.getElementById('qrModal').classList.remove('hidden');
+        }
+
+        function closeModal() {
+            document.getElementById('qrModal').classList.add('hidden');
+        }
+
+        function confirmPayment() {
+            alert('អរគុណសម្រាប់ការបញ្ជាទិញ! ប្រព័ន្ធបានទទួលការស្នើសុំរបស់អ្នកហើយ កំពុងផ្ទៀងផ្ទាត់ការទូទាត់...');
+            closeModal();
+            document.getElementById('uidInput').value = '';
+        }
+    </script>
+</body>
+</html>
