@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="km">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Other ស្បែកជើងគុណភាពល្អ</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Kantumruy Pro', sans-serif;
+            background-color: #f8fafc;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 min-h-screen text-slate-800 pb-12">
+
+    <!-- Header -->
+    <header class="bg-gradient-to-r from-violet-700 via-indigo-600 to-purple-800 text-white shadow-md">
+        <div class="max-w-4xl mx-auto px-4 py-5 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <div class="w-12 h-12 bg-white rounded-xl shadow-inner flex items-center justify-center p-1 overflow-hidden border-2 border-white/20">
+                    <img src="https://i.ibb.co/fV6q5vkY/IMG-1703-c17803.png" alt="Logo" class="w-full h-full object-cover rounded-lg">
+                </div>
+                <div>
+                    <h1 class="text-lg font-bold tracking-tight leading-tight">Free Other ស្បែកជើងគុណភាពល្អ</h1>
+                    <p class="text-xs text-violet-200">ហាងស្បែកជើងអនឡាញ</p>
+                </div>
+            </div>
+            <!-- Control buttons removed as requested -->
+        </div>
+        <div class="bg-black/10 py-1.5 px-4 text-center text-xs text-violet-100 tracking-wide">
+            ✨ QUALITY SHOES COLLECTION ✨
+        </div>
+    </header>
+
+    <!-- Hero / Banner Section -->
+    <section class="max-w-4xl mx-auto px-4 pt-6 pb-2 text-center">
+        <h2 class="text-xl font-extrabold text-slate-900 mb-1">Free Other ស្បែកជើងគុណភាពល្អ</h2>
+        <p class="text-sm text-slate-600 max-w-md mx-auto">ជ្រើសរើសស្បែកជើងដែលលោកអ្នកពេញចិត្ត រួចចុចប៊ូតុងឆាតមកកាន់ Telegram ដើម្បីបញ្ជាទិញផ្ទាល់ៗ!</p>
+    </section>
+
+    <!-- Search & Filter Bar -->
+    <section class="max-w-4xl mx-auto px-4 py-4">
+        <div class="flex items-center justify-between gap-3 bg-white p-3 rounded-2xl shadow-sm border border-slate-100">
+            <div class="flex items-center space-x-2 bg-violet-50 text-violet-700 px-3 py-2 rounded-xl text-xs font-semibold">
+                <span>✨ បញ្ជីស្បែកជើងសរុប</span>
+                <span id="totalCount" class="bg-violet-600 text-white px-2 py-0.5 rounded-full text-xs">18</span>
+            </div>
+            <div class="relative flex-1">
+                <input type="text" id="searchInput" placeholder="ស្វែងរកស្បែកជើង..." class="w-full pl-3 pr-4 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs focus:outline-none focus:ring-2 focus:ring-violet-500 focus:bg-white transition">
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Grid (2 Columns) -->
+    <main class="max-w-4xl mx-auto px-4">
+        <div id="productGrid" class="grid grid-cols-2 gap-3 sm:gap-4">
+            <!-- Products will be injected here via JavaScript -->
+        </div>
+        
+        <!-- Empty State -->
+        <div id="emptyState" class="hidden text-center py-12">
+            <p class="text-slate-400 text-sm">រកមិនឃើញស្បែកជើងที่คุณកំពុងស្វែងរកទេ។</p>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="max-w-4xl mx-auto px-4 mt-12 text-center text-xs text-slate-400">
+        <p>&copy; 2026 Free Other ស្បែកជើងគុណភាពល្អ. All rights reserved.</p>
+    </footer>
+
+    <!-- JavaScript Data and Logic -->
+    <script>
+        const telegramUsername = "Rara12234";
+
+        // Initial 18 Products with ImgBB links provided
+        let products = [
+            { id: 1, name: "ស្បែកជើងម៉ូដទី ១", price: "4.00", image: "https://i.ibb.co/fV6q5vkY/IMG-1703-c17803.png" },
+            { id: 2, name: "ស្បែកជើងម៉ូដទី ២", price: "4.00", image: "https://i.ibb.co/27Z6ZpGF/IMG-1704-c1ce1b.png" },
+            { id: 3, name: "ស្បែកជើងម៉ូដទី ៣", price: "4.00", image: "https://i.ibb.co/pvyZBNP4/IMG-1705-c1d90a.jpg" },
+            { id: 4, name: "ស្បែកជើងម៉ូដទី ៤", price: "4.00", image: "https://i.ibb.co/Hft4Fpz7/IMG-1706-538965.jpg" },
+            { id: 5, name: "ស្បែកជើងម៉ូដទី ៥", price: "4.00", image: "https://i.ibb.co/DHWv1XBq/IMG-1707-1b033d.jpg" },
+            { id: 6, name: "ស្បែកជើងម៉ូដទី ៦", price: "4.00", image: "https://i.ibb.co/FqHZ48Lk/IMG-1708-8e6d23.jpg" },
+            { id: 7, name: "ស្បែកជើងម៉ូដទី ៧", price: "4.00", image: "https://i.ibb.co/bMG5SCSB/IMG-1709-6bc250.jpg" },
+            { id: 8, name: "ស្បែកជើងម៉ូដទី ៨", price: "4.00", image: "https://i.ibb.co/3yYD6bJ4/IMG-1710-eb5c94.jpg" },
+            { id: 9, name: "ស្បែកជើងម៉ូដទី ៩", price: "4.00", image: "https://i.ibb.co/JW3p00bj/IMG-1711-d1c9fb.jpg" },
+            { id: 10, name: "ស្បែកជើងម៉ូដទី ១០", price: "4.00", image: "https://i.ibb.co/7Jq9QPPY/IMG-1712-1f41d9.jpg" },
+            { id: 11, name: "ស្បែកជើងម៉ូដទី ១១", price: "4.00", image: "https://i.ibb.co/mrN18Tyq/IMG-1713-33e1ea.jpg" },
+            { id: 12, name: "ស្បែកជើងម៉ូដទី ១២", price: "4.00", image: "https://i.ibb.co/SX6Mbmq3/IMG-1714-fae373.jpg" },
+            { id: 13, name: "ស្បែកជើងម៉ូដទី ១៣", price: "4.00", image: "https://i.ibb.co/8DsCrC7R/IMG-1715-cf6179.jpg" },
+            { id: 14, name: "ស្បែកជើងម៉ូដទី ១៤", price: "4.00", image: "https://i.ibb.co/N2f1yNyf/IMG-1716-e578b9.jpg" },
+            { id: 15, name: "ស្បែកជើងម៉ូដទី ១៥", price: "4.00", image: "https://i.ibb.co/BVxSJGqR/IMG-1717-3bfb70.jpg" },
+            { id: 16, name: "ស្បែកជើងម៉ូដទី ១៦", price: "4.00", image: "https://i.ibb.co/ymx0JRxm/IMG-1718-cc2b08.jpg" },
+            { id: 17, name: "ស្បែកជើងម៉ូដទី ១៧", price: "4.00", image: "https://i.ibb.co/9khRP4H9/IMG-1719-242f36.jpg" },
+            { id: 18, name: "ស្បែកជើងម៉ូដទី ១៨", price: "4.00", image: "https://i.ibb.co/yF7pcD5q/IMG-1720-41ab2b.jpg" }
+        ];
+
+        function renderProducts(items) {
+            const grid = document.getElementById('productGrid');
+            const emptyState = document.getElementById('emptyState');
+            document.getElementById('totalCount').innerText = items.length;
+
+            grid.innerHTML = '';
+
+            if (items.length === 0) {
+                emptyState.classList.remove('hidden');
+                return;
+            } else {
+                emptyState.classList.add('hidden');
+            }
+
+            items.forEach(product => {
+                const telegramMessage = encodeURIComponent(`សួស្តី! ខ្ញុំចង់ទិញផលិតផល ${product.name} តម្លៃ $${product.price}`);
+                const telegramUrl = `https://t.me/${telegramUsername}?text=${telegramMessage}`;
+
+                const card = document.createElement('div');
+                card.className = "bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden flex flex-col justify-between transition hover:shadow-md";
+                card.innerHTML = `
+                    <div>
+                        <div class="relative w-full pt-[100%] bg-slate-100 overflow-hidden">
+                            <img src="${product.image}" alt="${product.name}" class="absolute inset-0 w-full h-full object-cover hover:scale-105 transition duration-300">
+                        </div>
+                        <div class="p-3">
+                            <h3 class="font-semibold text-xs text-slate-800 line-clamp-1 mb-1">${product.name}</h3>
+                            <div class="text-violet-600 font-bold text-sm">$${product.price}</div>
+                        </div>
+                    </div>
+                    <div class="p-3 pt-0">
+                        <a href="${telegramUrl}" target="_blank" class="w-full bg-violet-600 hover:bg-violet-700 active:bg-violet-800 text-white font-medium py-2 px-3 rounded-xl text-xs flex items-center justify-center space-x-1.5 transition shadow-sm shadow-violet-200">
+                            <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69.01-.03.01-.14-.07-.2-.08-.06-.19-.04-.27-.02-.12.03-1.99 1.27-5.62 3.72-.53.36-1.01.54-1.44.53-.47-.02-1.37-.26-2.03-.48-.82-.27-1.47-.42-1.42-.88.03-.24.35-.49.96-.75 3.78-1.65 6.31-2.74 7.58-3.28 3.61-1.51 4.36-1.77 4.85-1.78.11 0 .37.03.54.17.14.12.18.28.2.4-.02.07-.02.2-.04.33z"/></svg>
+                            <span>ឆាតទិញ</span>
+                        </a>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        // Search functionality
+        document.getElementById('searchInput').addEventListener('input', (e) => {
+            const keyword = e.target.value.toLowerCase();
+            const filtered = products.filter(p => p.name.toLowerCase().includes(keyword));
+            renderProducts(filtered);
+        });
+
+        // Initial render
+        renderProducts(products);
+    </script>
+</body>
+</html>
